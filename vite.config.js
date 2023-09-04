@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 import ssl from '@vitejs/plugin-basic-ssl'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import { defineConfig } from 'vite'
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 const config = {
   serve: defineConfig({
@@ -37,4 +40,4 @@ const config = {
   })
 }
 
-export default defineConfig(({ command }) => config[command])
+export default defineConfig(({ command }) => config[command]);
